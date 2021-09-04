@@ -1,0 +1,50 @@
+{
+  "name": "@presspage/metatrader-bridge",
+  "version": "1.0.0",
+  "description": "A Metatrader Bridge API Server",
+  "homepage": "https://github.com/pingleware/metatrader-bridge",
+  "bugs": {
+    "url": "https://github.com/pingleware/metatrader-bridge/issues",
+    "email": "presspage.entertainment@gmail.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "apidoc -f index.js -e ./node_modules -o ./doc/"
+  },
+  "keywords": [
+    "metatrader",
+    "forex",
+    "algorithmic trading"
+  ],
+  "repository": {
+    "url": "https://github.com/pingleware/metratrader-bridge.git",
+    "type": "git"
+  },
+  "author": {
+    "name": "PressPage Entertainment Inc DBA PINGLEWARE",
+    "email": "presspage.entertainment@gmail.com",
+    "url": "https://pingleware.work"
+  },
+  "maintainers": [
+    {
+      "name": "Patrick Ingle",
+      "email": "me@patruckingle.info",
+      "url": "https://patrickingle.info"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "private": false,
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "killable": "^1.0.1",
+    "nodejs-md5": "^1.1.0",
+    "ta-lib": "^0.11.0"
+  }
+}
