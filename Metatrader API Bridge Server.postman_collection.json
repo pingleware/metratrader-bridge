@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0c189c1b-9c69-4794-9c65-41c43b803c70",
+		"_postman_id": "2257dd1d-5c37-4cea-b454-faa78547527a",
 		"name": "Metatrader API Bridge Server",
 		"description": "Testing the Metatrader Bridge Server",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -393,6 +393,46 @@
 					"port": "3000",
 					"path": [
 						"GetAllMarketInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMarketInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMarketInfo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMarketInfo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMarginInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMarginInfo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMarginInfo",
+						"1"
 					]
 				}
 			},
@@ -812,7 +852,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/SaveAccountInfo/2.00000000,1551102,5000000.00000000,5000000.00000000,1000.00000000",
+					"raw": "http://localhost:3000/SaveAccountInfo/1,1551102,5000000.00000000,5000000.00000000,1000.00000000",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -820,7 +860,7 @@
 					"port": "3000",
 					"path": [
 						"SaveAccountInfo",
-						"2.00000000,1551102,5000000.00000000,5000000.00000000,1000.00000000"
+						"1,1551102,5000000.00000000,5000000.00000000,1000.00000000"
 					]
 				}
 			},
@@ -1189,10 +1229,10 @@
 		{
 			"name": "SaveMarginInfo",
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/SaveMarginInfo/3.00000000,EURUSDi,132852,0.00000000,0.00000000,25000.00000000,118.63000000,0.00000000\n",
+					"raw": "http://localhost:3000/SaveMarginInfo/1,EURUSD,132852,0.00000000,0.00000000,25000.00000000,118.63000000,0.00000000\n",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1200,7 +1240,7 @@
 					"port": "3000",
 					"path": [
 						"SaveMarginInfo",
-						"3.00000000,EURUSDi,132852,0.00000000,0.00000000,25000.00000000,118.63000000,0.00000000\n"
+						"1,EURUSD,132852,0.00000000,0.00000000,25000.00000000,118.63000000,0.00000000\n"
 					]
 				}
 			},

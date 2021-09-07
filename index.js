@@ -1082,6 +1082,38 @@ class MetatraderBridge {
         res.json(SharedMemory.marketinfo);
     });
     /**
+     * @api {get} /GetMarketInfo Retrieves market information by session
+     * @apiName GetMarketInfo
+     * @apiGroup Market
+     */
+    app.get("/GetMarketInfo/:session", function(req, res, next){
+        try {
+            if (req.params.session > MAX_SESSIONS || req.params.session > SharedMemory.session_count || req.params.session < 0) {
+                res.json(ERROR_CODES.RET_ERROR);
+            } else {
+                res.json(SharedMemory.marketinfo[req.params.session-1]);
+            }
+        } catch(error) {
+            next(error);
+        }
+    });
+    /**
+     * @api {get} /GetMarginInfo Retrieves session margin information
+     * @apiName GetMarginInfo
+     * @apiGroup Market
+     */
+    app.get("/GetMarginInfo/:session", function(req, res, next){
+        try {
+            if (req.params.session > MAX_SESSIONS || req.params.session > SharedMemory.session_count || req.params.session < 0) {
+                res.json(ERROR_CODES.RET_ERROR);
+            } else {
+                res.json(SharedMemory.margininfo[req.params.session-1]);
+            }
+        } catch(error) {
+            next(error);
+        }
+    });
+    /**
      * @api {get} /GetAllMarginInfo Retrieves all margin information
      
      * @apiName GetAllMarginInfo
@@ -1824,7 +1856,7 @@ class MetatraderBridge {
         }
     });
     /**
-     * @api {get} /SaveMarginInfo/:session,:symbol,:handle,:margininit,:marginmaintenance,:marginhedged,:marginrequired,:margincalcmode Save the session margin information
+     * @api {put} /SaveMarginInfo/:session,:symbol,:handle,:margininit,:marginmaintenance,:marginhedged,:marginrequired,:margincalcmode Save the session margin information
      
      * @apiName SaveMarginInfo
      * @apiGroup Margin
