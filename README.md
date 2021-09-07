@@ -54,6 +54,7 @@ or, change the default paramters,
     "get -> /GetAllTradeCommands",
     "get -> /GetAllPrices",
     "get -> /GetDllVersion",
+    "get -> /GetVersion",
     "put -> /SetBidAsk/:session,:bid,:ask,:close,:volume",
     "get -> /GetBid/:session",
     "put -> /SetBid/:session,:quote",
@@ -148,6 +149,12 @@ or, change the default paramters,
     "get -> /PipSize/:session",
     "get -> /MovingAverages/:session",
     "get -> /TechnicalIndicators/:session,:period"
+
+# Testing with Postman
+Download the POSTMAN tool to test the API. You must initialize a session first.
+
+    1. Invoke the Initialize method first, for a single currency.
+    2. If testing arbitrage, invoke InitializeCurrency1, InitializeCurrency2 and InitializeCurrency3 in addition to InitializeCurrency
 
 # Contact us
 The best contact method is via email at presspage.entertainment@gmail.com

@@ -1,0 +1,2545 @@
+{
+	"info": {
+		"_postman_id": "0c189c1b-9c69-4794-9c65-41c43b803c70",
+		"name": "Metatrader API Bridge Server",
+		"description": "Testing the Metatrader Bridge Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetRoutes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "About",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/about",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"about"
+					]
+				},
+				"description": "Package information"
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistorical by Session",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistorical/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistorical",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MD5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/md5/password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"md5",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shutdown",
+			"request": {
+				"method": "PURGE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/shutdown",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shutdown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/ResetAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ResetAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMaximumSessions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMaximumSessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMaximumSessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindExistingSession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/FindExistingSession/1551102,EURUSD,132852",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"FindExistingSession",
+						"1551102,EURUSD,132852"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Initialize",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql(1);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/Initialize/1551102,132852,EURUSD,AUDJPY,CADJPY,AUDCAD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Initialize",
+						"1551102,132852,EURUSD,AUDJPY,CADJPY,AUDCAD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InitializeCurrency1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/InitializeCurrency1/1551102,USDJPY,263854",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"InitializeCurrency1",
+						"1551102,USDJPY,263854"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InitializeCurrency2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/InitializeCurrency2/1551102,USDJPY,263854",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"InitializeCurrency2",
+						"1551102,USDJPY,263854"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InitializeCurrency3",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/InitializeCurrency3/1551102,USDJPY,263854",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"InitializeCurrency3",
+						"1551102,USDJPY,263854"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeInitialize",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/DeInitialize/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"DeInitialize",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSessionCount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSessionCount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSessionCount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSession/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSession",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllSessions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllSessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllSessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllAccounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllAccounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllAccounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCurrencyPairs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllCurrencyPairs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllCurrencyPairs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllMarketInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllMarketInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllMarketInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllMarginInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllMarginInfo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllMarginInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllResponses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllResponses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllResponses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllHistory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllHistory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllHistory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCurrency1History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllCurrency1History",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllCurrency1History"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCurrency2History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllCurrency2History",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllCurrency2History"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCurrency3History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllCurrency3History",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllCurrency3History"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllTradeCommands",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllTradeCommands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllTradeCommands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPrices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllTradePrices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllTradePrices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDllVersion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetDllVersion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetDllVersion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVersion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetVersion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetVersion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetBidAsk",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/SetBidAsk/1,1.1105,1.1108,1.1107,12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetBidAsk",
+						"1,1.1105,1.1108,1.1107,12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetBid/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetBid",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetBid",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetBid/1,1.00011",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetBid",
+						"1,1.00011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetBidCurrencyOne",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetBidCurrencyOne/1,EURUSD,1.00011",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetBidCurrencyOne",
+						"1,EURUSD,1.00011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetBidCurrencyTwo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetBidCurrencyTwo/1,EURUSD,1.00011",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetBidCurrencyTwo",
+						"1,EURUSD,1.00011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetBidCurrencyThree",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetBidCurrencyThree/1,EURUSD,1.00011",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetBidCurrencyThree",
+						"1,EURUSD,1.00011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAsk",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAsk/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAsk",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetAsk",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetAsk/1,1.00011",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetAsk",
+						"1,1.00011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetVolume",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetVolume/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetVolume",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetClose",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetClose/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetClose",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveAccountInfo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SaveAccountInfo/2.00000000,1551102,5000000.00000000,5000000.00000000,1000.00000000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveAccountInfo",
+						"2.00000000,1551102,5000000.00000000,5000000.00000000,1000.00000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccountInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAccountInfo/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAccountInfo",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccountNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAccountNumber/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAccountNumber",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccountBalance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAccountBalance/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAccountBalance",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccountEquity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAccountEquity/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAccountEquity",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAccountLeverage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAccountLeverage/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAccountLeverage",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveCurrencySessionInfo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SaveCurrencySessionInfo/1,EURUSDi,132852,1,1551102",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveCurrencySessionInfo",
+						"1,EURUSDi,132852,1,1551102"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSessionCurrency",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSessionCurrency/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSessionCurrency",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSessionCurrency1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSessionCurrency1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSessionCurrency1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSessionCurrency2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSessionCurrency2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSessionCurrency2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSessionCurrency3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSessionCurrency3/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSessionCurrency3",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSessionHandle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSessionHandle/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSessionHandle",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSessionPeriod",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSessionPeriod/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSessionPeriod",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DecrementQueuePosition",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/DecrementQueuePosition/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"DecrementQueuePosition",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveMarketInfo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SaveMarketInfo/1,1551102,50,EURUSD,3,5,3,4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveMarketInfo",
+						"1,1551102,50,EURUSD,3,5,3,4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDigits",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetDigits/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetDigits",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSpread",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSpread/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSpread",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStoplevel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetStoplevel/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetStoplevel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPoints",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetPoints/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetPoints",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveMarginInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SaveMarginInfo/3.00000000,EURUSDi,132852,0.00000000,0.00000000,25000.00000000,118.63000000,0.00000000\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveMarginInfo",
+						"3.00000000,EURUSDi,132852,0.00000000,0.00000000,25000.00000000,118.63000000,0.00000000\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMarginHedged",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMarginHedged/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMarginHedged",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMarginInit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMarginInit/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMarginInit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMarginMaintenance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMarginMaintenance/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMarginMaintenance",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMarginHedged",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMarginHedged/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMarginHedged",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMarginRequired",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMarginRequired/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMarginRequired",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMarginCalcMode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetMarginCalcMode/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetMarginCalcMode",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeOpCommands",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeOpCommands/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeOpCommands",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeOpCommand",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeOpCommand/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeOpCommand",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeOpCommand1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeOpCommand1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeOpCommand1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeOpCommand2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeOpCommand2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeOpCommand2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeOpCommand3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeOpCommand3/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeOpCommand3",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCurrencies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetAllCurrencies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetAllCurrencies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveAllCurrencies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session\": 1,\r\n    \"symbols\": [\r\n        {\r\n            \"symbol\": \"AUDCAD\"\r\n        },\r\n        {\r\n            \"symbol\": \"AUDCHF\"\r\n        },\r\n        {\r\n            \"symbol\": \"AUDHKD\"\r\n        },\r\n        {\r\n            \"symbol\": \"AUDJPY\"\r\n        },\r\n        {\r\n            \"symbol\": \"AUDNZD\"\r\n        },\r\n        {\r\n            \"symbol\": \"AUDSGD\"\r\n        },\r\n        {\r\n            \"symbol\": \"AUDUSD\"\r\n        },\r\n        {\r\n            \"symbol\": \"CADCHF\"\r\n        },\r\n        {\r\n            \"symbol\": \"CADHKD\"\r\n        },\r\n        {\r\n            \"symbol\": \"CADJPY\"\r\n        },\r\n        {\r\n            \"symbol\": \"CADSGD\"\r\n        },\r\n        {\r\n            \"symbol\": \"CHFHKD\"\r\n        },\r\n        {\r\n            \"symbol\": \"CHFJPY\"\r\n        },\r\n        {\r\n            \"symbol\": \"CHFZAR\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURAUD\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURCAD\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURCHF\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURCZK\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURDKK\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURGBP\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURHKD\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURHUF\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURJPY\"\r\n        },\r\n        {\r\n            \"symbol\": \"EURNOK\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/SaveAllCurrencies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveAllCurrencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveSingleHistory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SaveSingleHistory/1,99,\"2021.06.23 13:48\",1.19488000,1.19477000,1.19492000,1.19475000,0.00000000\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveSingleHistory",
+						"1,99,\"2021.06.23 13:48\",1.19488000,1.19477000,1.19492000,1.19475000,0.00000000\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveHistory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session\": 1,\r\n    \"symbol\": \"EURUSD\",\r\n    \"handle\": 525824,\r\n    \"rates\": [{\"time\":\"2021.06.23 13:46:00\",\"open\":1.19463,\"high\":1.19476,\"low\":1.19463,\"close\":1.19471,\"tick\":28,\"spread\":0,\"volume\":0},{\"time\":\"2021.06.23 13:45:00\",\"open\":1.19468,\"high\":1.1947,\"low\":1.19462,\"close\":1.19462,\"tick\":41,\"spread\":0,\"volume\":0}],\r\n    \"rates_total\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/SaveHistory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveHistory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveHistory",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/SaveHistory/1,1,'2021.06.23 13:46:00',1.19463,1.19476,1.19463,1.19471,0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveHistory",
+						"1,1,'2021.06.23 13:46:00',1.19463,1.19476,1.19463,1.19471,0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveHistoryCcy1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session\": 1,\r\n    \"symbol\": \"EURUSD\",\r\n    \"handle\": 525824,\r\n    \"rates\": [\r\n        {\r\n            \"time\": \"2021.06.23 13:46:00\",\r\n            \"open\": 1.19463,\r\n            \"high\": 1.19476,\r\n            \"low\": 1.19463,\r\n            \"close\": 1.19471,\r\n            \"tick\": 28,\r\n            \"spread\": 0,\r\n            \"volume\": 0\r\n        },\r\n        {\r\n            \"time\": \"2021.06.23 13:45:00\",\r\n            \"open\": 1.19468,\r\n            \"high\": 1.1947,\r\n            \"low\": 1.19462,\r\n            \"close\": 1.19462,\r\n            \"tick\": 41,\r\n            \"spread\": 0,\r\n            \"volume\": 0\r\n        }\r\n    ],\r\n    \"rates_total\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/SaveHistoryCcy1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveHistoryCcy1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveHistoryCcy2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session\": 1,\r\n    \"symbol\": \"EURUSD\",\r\n    \"handle\": 525824,\r\n    \"rates\": [\r\n        {\r\n            \"time\": \"2021.06.23 13:46:00\",\r\n            \"open\": 1.19463,\r\n            \"high\": 1.19476,\r\n            \"low\": 1.19463,\r\n            \"close\": 1.19471,\r\n            \"tick\": 28,\r\n            \"spread\": 0,\r\n            \"volume\": 0\r\n        },\r\n        {\r\n            \"time\": \"2021.06.23 13:45:00\",\r\n            \"open\": 1.19468,\r\n            \"high\": 1.1947,\r\n            \"low\": 1.19462,\r\n            \"close\": 1.19462,\r\n            \"tick\": 41,\r\n            \"spread\": 0,\r\n            \"volume\": 0\r\n        }\r\n    ],\r\n    \"rates_total\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/SaveHistoryCcy2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveHistoryCcy2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveHistoryCcy3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session\": 1,\r\n    \"symbol\": \"EURUSD\",\r\n    \"handle\": 525824,\r\n    \"rates\": [\r\n        {\r\n            \"time\": \"2021.06.23 13:46:00\",\r\n            \"open\": 1.19463,\r\n            \"high\": 1.19476,\r\n            \"low\": 1.19463,\r\n            \"close\": 1.19471,\r\n            \"tick\": 28,\r\n            \"spread\": 0,\r\n            \"volume\": 0\r\n        },\r\n        {\r\n            \"time\": \"2021.06.23 13:45:00\",\r\n            \"open\": 1.19468,\r\n            \"high\": 1.1947,\r\n            \"low\": 1.19462,\r\n            \"close\": 1.19462,\r\n            \"tick\": 41,\r\n            \"spread\": 0,\r\n            \"volume\": 0\r\n        }\r\n    ],\r\n    \"rates_total\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/SaveHistoryCcy3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveHistoryCcy3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveTick",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/SaveTick/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SaveTick",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTick",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTick/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTick",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoryBufferSize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoryBufferSize/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoryBufferSize",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistorical",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistorical/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistorical",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistorical",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistorical/1,0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistorical",
+						"1,0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalOpen",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalOpen/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalOpen",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalHigh",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalHigh/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalHigh",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalLow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalLow/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalLow",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalClose",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalClose/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalClose",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalVolume",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalVolume/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalVolume",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalTime",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalTime/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalTime",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalOpen2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalOpen2/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalOpen2",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalHigh2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalHigh2/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalHigh2",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalLow2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalLow2/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalLow2",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalClose2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalClose2/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalClose2",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalVolume2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalVolume2/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalVolume2",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetrieveHistoricalTime2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/RetrieveHistoricalTime2/1,1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"RetrieveHistoricalTime2",
+						"1,1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendResponse",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SendResponse/1,0,200,'Trade opened',123455678",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SendResponse",
+						"1,0,200,'Trade opened',123455678"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetResponseErrorCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetResponseErrorCode/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetResponseErrorCode",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetResponseCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetResponseCode/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetResponseCode",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetResponseMessage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetResponseMessage/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetResponseMessage",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTicketNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTicketNumber/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTicketNumber",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendTradeCommands",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SendTradeCommands/1,0,EURUSDi,0.1,1.9370,0.0000,0.0000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SendTradeCommands",
+						"1,0,EURUSDi,0.1,1.9370,0.0000,0.0000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendTradeCommands",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session\": 1,\r\n    \"cmd\": 0,\r\n    \"symbol\": \"EURUSD\",\r\n    \"lots\": 0.01,\r\n    \"price\": 1.18879,\r\n    \"stoploss\": 1.18629,\r\n    \"profit\": 1.18629\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/SendTradeCommands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SendTradeCommands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetOrderStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetOrderStatus/1,0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetOrderStatus",
+						"1,0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetOrderStatus",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetOrderStatus/1,0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetOrderStatus",
+						"1,0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetOrderStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetOrderStatus/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetOrderStatus",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradePrice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradePrice/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradePrice",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeLots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeLots/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeLots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeLots2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeLots2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeLots2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeLots3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeLots3/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeLots3",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeStoploss",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeStoploss/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeStoploss",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeTakeprofit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeTakeprofit/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeTakeprofit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResetTradeCommand",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/ResetTradeCommand/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"ResetTradeCommand",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeCurrency",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeCurrency/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeCurrency",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeCurrency2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeCurrency2/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeCurrency2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTradeCurrency3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetTradeCurrency3/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetTradeCurrency3",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSwapRateLong",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSwapRateLong/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSwapRateLong",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSwapRateShort",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/GetSwapRateShort/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"GetSwapRateShort",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetSwapRateLong",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetSwapRateLong/1,0.0005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetSwapRateLong",
+						"1,0.0005"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetSwapRateShort",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/SetSwapRateShort/1,0.0005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"SetSwapRateShort",
+						"1,0.0005"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PipSize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/PipSize/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"PipSize",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MovingAverages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/MovingAverages/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"MovingAverages",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TechnicalIndicators",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/TechnicalIndicators/1,0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"TechnicalIndicators",
+						"1,0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
