@@ -359,6 +359,7 @@ class MetatraderBridge {
         app.use(express.urlencoded({
           extended: true
         }));
+        app.use(express.json());
         app.use(cors()); // enable cors
         
         app.use(function (err, req, res, next) {
@@ -627,7 +628,7 @@ class MetatraderBridge {
 
         // Shutdowns the server with password authentication
         /**
-         * @api {purge} /shutdown Shutdowns the server
+         * @api {all} /shutdown Shutdowns the server
          
          * @apiName Shutdown
          * @apiGroup Utility
@@ -642,7 +643,7 @@ class MetatraderBridge {
          *      curl --location --request PURGE 'http://localhost:3000/shutdown'
          * 
          */
-        app.purge('/Shutdown', function (req, res, next) {
+        app.all('/Shutdown', function (req, res, next) {
             try {
                 res.json('Server is going down NOW!');
 
@@ -669,7 +670,7 @@ class MetatraderBridge {
          *      curl --location --request GET 'http://localhost:3000/ResetAll'
          * 
          */
-        app.get("/ResetAll", function(req, res, next){
+        app.delete("/ResetAll", function(req, res, next){
             try {
                 for(let i=0; i<MAX_SESSIONS; i++) {
                     SharedMemory.account[i] = new ACCOUNT();
@@ -688,6 +689,7 @@ class MetatraderBridge {
                 for (let i=0; i<100; i++) {
                     SharedMemory.ticks[i] = new TICKS();
                 }
+                SharedMemory.session_count = 0;
                 res.json(SharedMemory);
             } catch(error) {
                 next(error);
@@ -735,9 +737,48 @@ class MetatraderBridge {
                 next(error);
             }
         });
-    
+
+        function Initialize(acctnum, handle, symbol) {
+            var session_number = -1;
+
+            for (let i=0;i<MAX_SESSIONS;i++) {
+                if (SharedMemory.session[i].index != 0 && SharedMemory.session[i].acctnum == acctnum && SharedMemory.session[i].symbol == symbol) {
+                    session_number = i;
+                    SharedMemory.session[i].acctnum = acctnum;
+                    SharedMemory.session[i].handle = handle;
+                    SharedMemory.session[i].symbol = symbol;
+                    SharedMemory.session[i].symbol1 = "";
+                    SharedMemory.session[i].symbol2 = "";
+                    SharedMemory.session[i].symbol3 = "";
+
+                    SharedMemory.trade_commands[i].cmd = COMMANDS.OP_UNKNOWN;
+
+                    SharedMemory.queue_position[i] = 0;
+
+                    return SharedMemory.session[i].index;
+                    break;
+                } else if (SharedMemory.session[i].index == 0) {
+                    SharedMemory.session_count++;
+                    SharedMemory.session[i].index = SharedMemory.session_count;
+                    SharedMemory.session[i].acctnum = acctnum;
+                    SharedMemory.session[i].handle = handle;
+                    SharedMemory.session[i].symbol = symbol;
+                    SharedMemory.session[i].symbol1 = "";
+                    SharedMemory.session[i].symbol2 = "";
+                    SharedMemory.session[i].symbol3 = "";
+
+
+                    SharedMemory.trade_commands[i].cmd = COMMANDS.OP_UNKNOWN;
+
+                    SharedMemory.queue_position[i] = 0;
+                    return SharedMemory.session_count;
+                }
+            }
+            return (session_number);
+        }
+
         /**
-         * @api {put} /Initialize/:acctnum,:handle,:symbol,:symbol1,:symbol2,:symbol3 Initializes a session
+         * @api {post} Initialize
          
          * @apiName Initialize
          * @apiGroup Session
@@ -745,9 +786,6 @@ class MetatraderBridge {
          * @apiParam {string} acctnum The account number 
          * @apiParam {string} handle The window handle that the ForexGeneral.ex4 is attached
          * @apiParam {string} symbol The currency pair of the above window handle
-         * @apiParam {string} symbol1 One currency pair for triangular arbitrage
-         * @apiParam {string} symbol2 One currency pair for triangular arbitrage
-         * @apiParam {string} symbol3 One currency pair for triangular arbitrage
          * 
          * @apiSuccess {Number} session The session
          *      1
@@ -756,28 +794,34 @@ class MetatraderBridge {
          *      curl --location --request PUT 'http://localhost:3000/Initialize/1551102,132852,EURUSD,AUDJPY,CADJPY,AUDCAD' \
          *           --header 'Content-Type: application/x-www-form-urlencoded'
          */
-        app.put("/Initialize/:acctnum,:handle,:symbol,:symbol1,:symbol2,:symbol3", function(req, res, next){
+        app.post("/Initialize", function(req, res, next){
             try {
-                for (let i=0;i<MAX_SESSIONS;i++) {
-                    if (SharedMemory.session[i].index == 0 || (SharedMemory.session[i].acctnum == req.params.acctnum && SharedMemory.session[i].handle == req.params.handle)) {
-                        SharedMemory.session[i].index = i+1;
-                        SharedMemory.session[i].acctnum = req.params.acctnum;
-                        SharedMemory.session[i].handle = req.params.handle;
-                        SharedMemory.session[i].symbol = req.params.symbol;
-                        SharedMemory.session[i].symbol1 = req.params.symbol1;
-                        SharedMemory.session[i].symbol2 = req.params.symbol2;
-                        SharedMemory.session[i].symbol3 = req.params.symbol3;
-
-                        SharedMemory.session_count++;
-
-                        SharedMemory.trade_commands[i].cmd = COMMANDS.OP_UNKNOWN;
-
-                        SharedMemory.queue_position[i] = 0;
-
-                        res.json(SharedMemory.session_count);
-                        break;
-                    }
-                }
+                res.json(Initialize(req.body.acctnum, req.body.handle, req.body.symbol));
+            } catch(error) {
+                next(error);
+            }
+        });
+    
+        /**
+         * @api {get} /Initialize/:acctnum,:handle,:symbol Initializes a session
+         
+         * @apiName Initialize
+         * @apiGroup Session
+         * 
+         * @apiParam {string} acctnum The account number 
+         * @apiParam {string} handle The window handle that the ForexGeneral.ex4 is attached
+         * @apiParam {string} symbol The currency pair of the above window handle
+         * 
+         * @apiSuccess {Number} session The session
+         *      1
+         * 
+         * @apiExample {curl} Example usage:
+         *      curl --location --request GET 'http://localhost:3000/Initialize/1551102,132852,EURUSD' \
+         *           --header 'Content-Type: application/x-www-form-urlencoded'
+         */
+        app.get("/Initialize/:acctnum,:handle,:symbol", function(req, res, next){
+            try {
+                res.json(Initialize(req.params.acctnum, req.params.handle, req.params.symbol))
             } catch(error) {
                 next(error);
             }
@@ -904,7 +948,7 @@ class MetatraderBridge {
         }
     });
     /**
-     * @api {delete} /DeInitialize/:index Removes the following session, deinitializes
+     * @api {get} /DeInitialize/:index Removes the following session, deinitializes
      
      * @apiName DeInitialize
      * @apiGroup Session
@@ -918,7 +962,7 @@ class MetatraderBridge {
      *      curl --location --request GET 'http://localhost:3000/DeInitialize/1'
      * 
      */
-   app.delete("/DeInitialize/:index", function(req, res, next){
+   app.get("/DeInitialize/:index", function(req, res, next){
         try {
             if (req.params.index > MAX_SESSIONS || req.params.index > SharedMemory.session_count || req.params.index < 0) {
                 res.json(ERROR_CODES.RET_ERROR);
@@ -1197,6 +1241,10 @@ class MetatraderBridge {
         var pjson = require('./package.json');
         res.json("Metatrader API Version " + pjson.version + " - Copyright (c) 2009,2012-2013,2019-" + d.getFullYear() + " PressPage Entertainment Inc DBA PINGLEWARE");
     });
+    app.get("/GetVersion", function(req, res, next){
+        var pjson = require('./package.json');
+        res.json(pjson.version);
+    });
     /**
      * @api {get} /GetVersion Retrieves version-ONLY
      * @apiName GetVersion
@@ -1431,17 +1479,18 @@ class MetatraderBridge {
      * @apiExample {curl} Example usage:
      *      curl --location --request GET 'http://localhost:3000/SaveAccountInfo/3.00000000,1551102,5000000.00000000,5000000.00000000,1000.00000000'
      */
-   app.put("/SaveAccountInfo/:session,:number,:balance,:equity,:leverage", function(req, res, next){
+   app.put("/SaveAccountInfo/", function(req, res, next){
         try {
-            if (req.params.session > MAX_SESSIONS || req.params.session > SharedMemory.session_count || req.params.session < 0) {
+            console.log(req.body);
+            if (req.body.session > MAX_SESSIONS || req.body.session > SharedMemory.session_count || req.body.session < 0) {
                 res.json(ERROR_CODES.RET_ERROR);
             } else {
-                SharedMemory.account[req.params.session-1].number = req.params.number;
-                SharedMemory.account[req.params.session-1].balance = req.params.balance;
-                SharedMemory.account[req.params.session-1].equity = req.params.equity;
-                SharedMemory.account[req.params.session-1].leverage = req.params.leverage;
+                SharedMemory.account[Number(req.body.session)-1].number = Number(req.body.number);
+                SharedMemory.account[Number(req.body.session)-1].balance = Number(req.body.balance);
+                SharedMemory.account[Number(req.body.session)-1].equity = Number(req.body.equity);
+                SharedMemory.account[Number(req.body.session)-1].leverage = Number(req.body.leverage);
             
-                res.json(req.params.session);
+                res.json(req.body.session);
             }
         } catch(error) {
             next(error);
@@ -2166,7 +2215,7 @@ class MetatraderBridge {
      * @apiGroup History
      * 
      * @apiParam {Number} session The session number
-     * @apiParam {String} rates A JSON string of rates
+     * @apiParam {String} rates A base-64 string of rates
      * @apiParam {String} symbol The currency pair
      * @apiParam {Number} rates_total The total number of the rates
      * 
@@ -2205,9 +2254,9 @@ class MetatraderBridge {
      *              "rates_total": 3
      *      }'
      */
-    app.post("/SaveHistory", function(req, res, next){
+    app.get("/SaveHistory/:session,:symbol,:handle,:rates,:total", function(req, res, next){
         try {
-            if (req.body.session > MAX_SESSIONS || req.body.session > SharedMemory.session_count || req.body.session < 0) {
+            if (req.params.session > MAX_SESSIONS || req.params.session > SharedMemory.session_count || req.params.session < 0) {
                 res.json(ERROR_CODES.RET_ERROR);
             } else {
                 /**
@@ -2220,10 +2269,19 @@ class MetatraderBridge {
                  *       int      spread;       // Spread 
                  *       long     real_volume;  // Trade volume 
                  */
-                var rates = req.body.rates;
-                let session = Number(req.body.session);
-                var symbol = req.body.symbol;
-                let rates_total = req.body.rates_total;
+                var base64 = req.params.rates;
+                //console.log(base64);
+                var json = Buffer.from(base64, "base64").toString("utf8");
+                //console.log(json);
+                var fixed_json = json.replace('},}','}}');
+                //console.log(fixed_json);
+                var rates = JSON.parse(fixed_json);
+                //console.log(rates);
+
+                let session = Number(req.params.session);
+                var symbol = req.params.symbol;
+                console.log(symbol);
+                let rates_total = Number(req.params.rates_total);
 
                 let total = 100;
                 if (rates_total < 100) {
@@ -2240,7 +2298,7 @@ class MetatraderBridge {
                         _rateInfo.low = rates[i]['low'];
                         _rateInfo.close = rates[i]['close'];
                         _rateInfo.vol = rates[i]['volume'];
-                        SharedMemory.history[Number(req.body.session-1)][i] = _rateInfo;    
+                        SharedMemory.history[session - 1][i] = _rateInfo;    
                     }
                 }
                 res.json(ERROR_CODES.RET_OK);
